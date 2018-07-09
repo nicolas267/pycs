@@ -12,6 +12,15 @@ class GestorTerritorioModel{
 		return $stmt;
 	}
 
+
+	public function verProvinciasDeCiudadesInhabilitadas(){
+		$consulta = new Consulta();
+
+		$stmt = $consulta->ver_registros("SELECT * FROM provincias inner join ciudades on provincias.idprovincia = ciudades.idprovincia where ciudades.borrado = 1");
+
+		return $stmt;
+	}
+
 	public function verProvinciasInhabilitadas(){
 		$consulta = new Consulta();
 
@@ -20,6 +29,15 @@ class GestorTerritorioModel{
 		return $stmt;
 	}
 
+	public function verCiudadesInhabilitadas(){
+		$consulta = new Consulta();
+
+		$provincia = $_POST["idProvincia"];
+
+		$stmt = $consulta->ver_registros("SELECT * FROM ciudades where borrado = '1' and idprovincia = '$provincia'");
+
+		return $stmt;
+	}
 	public function agregarProvincia(){
 		$consulta = new Consulta();
 
@@ -70,7 +88,7 @@ class GestorTerritorioModel{
 
 		$idProvincia =$_POST["idProvincia"];
 
-		$stmt = $consulta->ver_registros("SELECT * FROM ciudades where idprovincia = '$idProvincia'");
+		$stmt = $consulta->ver_registros("SELECT * FROM ciudades where idprovincia = '$idProvincia' and borrado = '0'");
 
 		return $stmt;
 	}
@@ -85,7 +103,20 @@ class GestorTerritorioModel{
 		return 'ok';
 	}
 
-		public function inhabilitarCiudad(){
+	public function habilitarCiudad(){
+		$consulta = new Consulta();
+
+		$provincia = $_POST["provinciaCiudadHabilitar"];
+		$ciudad = $_POST["ciudad"];
+
+
+		$consulta->actualizar_registro("update ciudades set borrado= 0 where idciudad = '$ciudad' and idprovincia = '$provincia'");
+		$consulta->actualizar_registro("update provincias set borrado= 0 where idprovincia = '$provincia'");
+
+		return 'ok';
+	}
+
+	public function inhabilitarCiudad(){
 		$consulta = new Consulta();
 
 		$provincia = $_POST["provinciaI"];
@@ -97,5 +128,15 @@ class GestorTerritorioModel{
 		return 'ok';
 	}
 
+	public function eliminarCiudad(){
+		$consulta = new Consulta();
+
+		$provincia = $_POST["provinciaE"];
+		$ciudad = $_POST["ciudad"];
+
+		$consulta->borrar_registro("delete from ciudades where idciudad = '$ciudad' and idprovincia = '$provincia'");
+
+		return 'ok';
+	}
 
 }

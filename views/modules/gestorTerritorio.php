@@ -226,12 +226,12 @@
                                                    <form id="formHabilitarCiudad">
                                                        <div class="form-group col-md-12">
                                                             <!-- <label for="provincia" class="control-label">Provincia</label> -->
-                                                            <select name="provinciaA" class="provincia" id="provinciaA" accesskey="1">
+                                                            <select name="provinciaCiudadHabilitar" class="provinciasIn" id="provinciaCiudadHabilitar" accesskey="1">
                                                                 <option value="all"></option>
                                                                 
                                                                 <?php 
 
-                                                                    $fn = GestorTerritorioController::verProvincias();
+                                                                    $fn = GestorTerritorioController::verProvinciasDeCiudadesInhabilitadas();
 
                                                                  ?>
                                                             </select>

@@ -48,6 +48,10 @@ class Ajax{
     	$respuesta = AjaxController::verCiudadesAjax();
     	echo json_encode($respuesta);
     }
+    public function varCiudadesInhabilitadas(){
+        $respuesta = GestorTerritorioController::varCiudadesInhabilitadas();
+        echo json_encode($respuesta);
+    }
 
     public function verCliente(){
     	$respuesta = GestorClientesController::verCliente();
@@ -89,8 +93,19 @@ class Ajax{
 
         echo json_encode($respuesta);
     }
+
+    public function habilitarCiudad(){
+        $respuesta = GestorTerritorioController::habilitarCiudad();
+
+        echo json_encode($respuesta);
+    }
     public function inhabilitarCiudad(){
         $respuesta = GestorTerritorioController::inhabilitarCiudad();
+
+        echo json_encode($respuesta);
+    }
+     public function eliminarCiudad(){
+        $respuesta = GestorTerritorioController::eliminarCiudad();
 
         echo json_encode($respuesta);
     }
@@ -120,6 +135,10 @@ if (isset($_POST['guardarCliente'])) {
 if (isset($_POST['varCiudadesAjax'])) {
 	$f = new Ajax();
 	$f -> varCiudadesAjax();
+}
+if (isset($_POST['varCiudadesInhabilitadas'])) {
+    $f = new Ajax();
+    $f -> varCiudadesInhabilitadas();
 }
 if (isset($_POST['verCliente'])) {
 	$h = new Ajax();
@@ -156,12 +175,20 @@ if (isset($_POST['agregarCiudad'])) {
     $m -> agregarCiudad();
 }
 
+if (isset($_POST['habilitarCiudad'])) {
+    $m = new Ajax();
+    $m -> habilitarCiudad();
+}
+
 if (isset($_POST['inhabilitarCiudad'])) {
     $m = new Ajax();
     $m -> inhabilitarCiudad();
 }
 
-
+if (isset($_POST['eliminarCiudad'])) {
+    $l = new Ajax();
+    $l -> eliminarCiudad();
+}
 
 
 

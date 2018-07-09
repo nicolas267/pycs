@@ -65,6 +65,54 @@ $(".provincia").on("change",(e)=>{
 
 })
 
+$(".provinciasIn").on("change",(e)=>{
+
+
+    var id = e.target.id
+    var cod = e.target.accessKey
+    var idProvincia = $("#"+id).val(); 
+
+     $.ajax({
+        url: 'views/ajax/ajax.php',
+        type: 'POST',
+        dataType: "JSON",
+        data: {
+            varCiudadesInhabilitadas: "true",
+            idProvincia : idProvincia
+        }
+    })
+    .done(function(data){
+        // console.log(data)
+        if(data.length != 0){
+            $("#ciudades"+cod).html(`
+                <!-- <label for="ciudad" class="control-label">Ciudad</label> -->
+                <select name="ciudad">
+                                                    
+                </select>
+
+            `)
+            for(key in data){
+                $(`#ciudades${cod} select`).append(`
+                    <option value="` + data[key].idciudad + `">`  + data[key].ciudad +  `</option>
+                `)
+            
+            }
+
+            $("select").selectize({
+                create: false,
+                sortField: 'text'
+            })
+        }else{
+            var notification = alertify.notify('No hay ciudades disponibles', 'error', 3);
+        }
+    })
+    .fail(function(data){
+        console.log("fail")
+        console.log(data)
+    })
+
+})
+
 //AGREGAR PROVINCIA
 $("#agregarProvincia").on("click",(e)=>{
     e.preventDefault()
@@ -300,6 +348,53 @@ $("#agregarCiudad").on("click",(e)=>{
     }
 })
 
+//HABILITAR CIUDAD
+$("#habilitarCiudad").on("click",(e)=>{
+
+    e.preventDefault()
+
+    var formData = new FormData(document.getElementById("formHabilitarCiudad"));
+    var error = false
+
+    $("#formHabilitarCiudad div").removeClass('has-error')
+    formData.forEach((valor,key,obj)=>{
+        if(valor == ""){
+            $("#"+key)[0].parentElement.className += " has-error"
+            error = "Llene los campos obligatorios"
+        }
+    })
+    formData.append('habilitarCiudad','true')
+
+    if (!error) {
+         $.ajax({
+            url: 'views/ajax/ajax.php',
+            type: 'POST',
+            dataType: 'JSON',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        })
+        .done(function(data){
+            console.log(data)
+            if (data.resp == "ok") {
+                var notification = alertify.notify('Ciudad habilitada', 'success', 2, function(){
+                    window.location = "gestorTerritorio"
+                });
+            }else{
+                var notification = alertify.notify(data, 'error', 3);
+            }
+        })
+        .fail(function(data){
+            console.log("fail")
+            console.log(data)
+        })
+    }else{
+        var notification = alertify.notify(error, 'error', 3);
+    }
+
+})
+
 //INHABILITAR CIUDAD
 $("#inhabilitarCiudad").on("click",(e)=>{
 
@@ -331,6 +426,52 @@ $("#inhabilitarCiudad").on("click",(e)=>{
             console.log(data)
             if (data.resp == "ok") {
                 var notification = alertify.notify('Ciudad Inhabilitada', 'success', 2, function(){
+                    window.location = "gestorTerritorio"
+                });
+            }else{
+                var notification = alertify.notify(data, 'error', 3);
+            }
+        })
+        .fail(function(data){
+            console.log("fail")
+            console.log(data)
+        })
+    }else{
+        var notification = alertify.notify(error, 'error', 3);
+    }
+
+})
+//ELIMINAR PRIVINCIA
+$("#eliminarCiudad").on("click",(e)=>{
+
+    e.preventDefault()
+
+    var formData = new FormData(document.getElementById("formEliminarCiudad"));
+    var error = false
+
+    $("#formEliminarCiudad div").removeClass('has-error')
+    formData.forEach((valor,key,obj)=>{
+        if(valor == ""){
+            $("#"+key)[0].parentElement.className += " has-error"
+            error = "Llene los campos obligatorios"
+        }
+    })
+    formData.append('eliminarCiudad','true')
+
+    if (!error) {
+         $.ajax({
+            url: 'views/ajax/ajax.php',
+            type: 'POST',
+            dataType: 'JSON',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        })
+        .done(function(data){
+            console.log(data)
+            if (data.resp == "ok") {
+                var notification = alertify.notify('Ciudad eliminada', 'success', 2, function(){
                     window.location = "gestorTerritorio"
                 });
             }else{

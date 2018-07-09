@@ -21,6 +21,24 @@ class GestorTerritorioController{
 			}
 		}
 	}
+	public function verProvinciasDeCiudadesInhabilitadas(){
+		$provincias = GestorTerritorioModel::verProvinciasDeCiudadesInhabilitadas();
+
+		if (count($provincias) != 0) {
+			
+			for($i = 0; $i < count($provincias); $i++){
+				echo '
+					
+					<option value="' . $provincias[$i]["idprovincia"] . '">
+					
+						' . $provincias[$i]["provincia"] . '
+
+					</option>
+
+				';
+			}
+		}
+	}
 
 	public function verProvinciasInhabilitadas(){
 		$provincias = GestorTerritorioModel::verProvinciasInhabilitadas();
@@ -83,6 +101,18 @@ class GestorTerritorioController{
 			return $respuesta;
 		}
 	}
+
+	public function varCiudadesInhabilitadas(){
+		$respuesta = GestorTerritorioModel::verCiudadesInhabilitadas();
+
+		if ($respuesta == 'ok') {
+			$array["resp"] = 'ok';
+			return $array;
+		}else{
+			return $respuesta;
+		}
+	}
+
 	public function agregarCiudad(){
 		$respuesta = GestorTerritorioModel::agregarCiudad();
 
@@ -93,8 +123,28 @@ class GestorTerritorioController{
 			return $respuesta;
 		}
 	}
+	public function habilitarCiudad(){
+		$respuesta = GestorTerritorioModel::habilitarCiudad();
+
+		if ($respuesta == 'ok') {
+			$array["resp"] = 'ok';
+			return $array;
+		}else{
+			return $respuesta;
+		}
+	}
 	public function inhabilitarCiudad(){
 		$respuesta = GestorTerritorioModel::inhabilitarCiudad();
+
+		if ($respuesta == 'ok') {
+			$array["resp"] = 'ok';
+			return $array;
+		}else{
+			return $respuesta;
+		}
+	}
+	public function eliminarCiudad(){
+		$respuesta = GestorTerritorioModel::eliminarCiudad();
 
 		if ($respuesta == 'ok') {
 			$array["resp"] = 'ok';
