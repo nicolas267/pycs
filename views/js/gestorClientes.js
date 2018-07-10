@@ -163,7 +163,7 @@ $(".verInfoCliente").on("click",(e)=>{
 
 
             <div class="panel panel-info">
-                <div class="panel-heading">`+data[0].nombre + ' ' + data[0].apellido +` ( ${sexo} ) </div>
+                <div class="panel-heading">`+data[0].nombre + ' ' + data[0].apellido +` </div>
                 <div class="panel-body">
                     <ul class="list-group">
                         <li class="list-group-item"><b>Fecha de nacimiento</b> : `+data[0].fechanacimiento+`</li>
