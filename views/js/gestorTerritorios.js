@@ -13,6 +13,15 @@ $("#gestorProvincias").on("click",()=>{
     $("#gestorProvincias").addClass("active")
 })
 
+$("#opcionesProvincias").on("click",()=>{
+    $("#otrasOpcionesProvincias").slideToggle()
+    return false
+})
+$("#opcionesCiudades").on("click",()=>{
+    $("#otrasOpcionesCiudades").slideToggle()
+    return false
+})
+
 
 
 /*GESTOR PROVINCIAS*/

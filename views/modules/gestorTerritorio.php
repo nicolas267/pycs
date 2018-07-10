@@ -97,8 +97,11 @@
                                         </div>
                                     </div>
                                     
+
                                     
-                                    <div class="row">
+                                    <a  class="btn btn-link" id="opcionesProvincias">Otras opciones</a>
+                                    <hr>
+                                    <div class="row" style="display: none;" id="otrasOpcionesProvincias">
                                         <div class="col-md-6">
                                             <div class="panel panel-success">
                                                 <div class="panel-heading">HABILITAR PROVINCIA</div>
@@ -161,6 +164,8 @@
 
                                        
                                 </div>
+
+
                                 <div class="row" id="contCiudades" style="display: none;">
                                     
                                     <div class="row">
@@ -218,7 +223,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <a  class="btn btn-link" id="opcionesCiudades">Otras opciones</a>
+                                    <hr>
+
+                                    <div class="row" id="otrasOpcionesCiudades" style="display: none;">
                                         <div class="col-md-6">
                                             <div class="panel panel-success">
                                                 <div class="panel-heading">HABILITAR CIUDAD</div>
@@ -273,7 +281,7 @@
                                         
                                 </div>
 
-                                <hr>
+                                
 
                                
                                         

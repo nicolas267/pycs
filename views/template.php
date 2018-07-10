@@ -17,6 +17,7 @@
     <link href="views/plugins/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="views/plugins/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="views/plugins/iCheck/skins/line/green.css" rel="stylesheet">
 	
     <!-- bootstrap-progressbar -->
     <link href="views/plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
@@ -111,6 +112,26 @@
             },
             // maxFileSize : 15000
         });
+
+        $('.genero').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
+
+        
+        $('.tipoUsuario').each(function(){
+            var self = $(this),
+              label = self.next(),
+              label_text = label.text();
+
+            label.remove();
+            self.iCheck({
+              checkboxClass: 'icheckbox_line-green',
+              radioClass: 'iradio_line-green',
+              insert: '<div class="icheck_line-icon"></div>' + label_text
+            });
+        });
+        
 
         $("select").selectize({
             create: false,

@@ -3,19 +3,25 @@ $("#guardarNuevoCliente").on("click",(e)=>{
     e.preventDefault()
     var formData = new FormData(document.getElementById("formNuevoCliente"));
     var error = false
-    formData.forEach((valor,key,obj)=>{
 
+    var cliente = $("#cliente")[0].checked,
+        proveedor = $("#proveedor")[0].checked 
+
+    if (!cliente && !proveedor) {
+        error = 'Seleccione el tipo de cliente'
+        $("#errorTipoUsuario").html(error)
+    }else{
+        $("#errorTipoUsuario").html('')
+    }
+
+
+    $("#formNuevoCliente div").removeClass('has-error')
+    formData.forEach((valor,key,obj)=>{
         if(valor == ""){
             $("#"+key)[0].parentElement.className += " has-error"
             error = "Llene los campos obligatorios"
         }
-        // else{
-        //     if ($("#"+key)[0].parentElement != undefined) {
-        //         $("#"+key)[0].parentElement.setAttribute("class","form-group col-md-6 has-success")
-        //     }
-        // }
     })
-
     formData.append("guardarCliente", "true");
 
     if(!error){
@@ -35,7 +41,8 @@ $("#guardarNuevoCliente").on("click",(e)=>{
                     window.location = "clientes"
                 });
             }else{
-                var notification = alertify.notify(data, 'error', 3);
+                $("#"+data.id).addClass('has-error')
+                var notification = alertify.notify(data.texto, 'error', 3);
             }
         })
         .fail(function(data){
@@ -117,19 +124,18 @@ $(".verInfoCliente").on("click",(e)=>{
     .done(function(array){
         var data = array.cliente
         console.log(data)
-        var sexo = "Mujer",
-            bool = "Oferta"
-        if (data[0].sexo == "1") {
-            sexo = "Hombre"
-        }
-        if (data[0].demanda == '1') {
-            bool = "Demanda"
-        }
+        
+        var sexo = data[0].sexo == "1" ? "Masculino" : "Femenino"
+        
+        
+        var op1 = data[0].demanda == '1' ? "<span class='fa fa-check'></span>" : "<span class='fa fa-times'></span>",
+            op2 = data[0].oferta == '1' ? "<span class='fa fa-check'></span>" : "<span class='fa fa-times'></span>"
+        
 
 
         $("#mostrarInfoCliente").html(`
             <div class="panel panel-info">
-                <div class="panel-heading">`+data[0].nombre + ' ' + data[0].apellido +` </div>
+                <div class="panel-heading">`+data[0].nombre + ' ' + data[0].apellido +` ( ${sexo} ) </div>
                 <div class="panel-body">
                     <ul class="list-group">
                         <li class="list-group-item"><b>Fecha de nacimiento</b> : `+data[0].fechanacimiento+`</li>
@@ -137,7 +143,8 @@ $(".verInfoCliente").on("click",(e)=>{
                         <li class="list-group-item"><b>Email</b> : `+data[0].email+`</li>
                         <li class="list-group-item"><b>Teléfono 1</b> : `+data[0].telefono1+` / <b>Teléfono 2</b> : `+data[0].telefono2+`</li>
                         <li class="list-group-item"><b>Provincia</b> : `+data[0].provincia+` / <b>Ciudad</b> : `+data[0].ciudad+`</li>
-                        <li class="list-group-item"><b>Oferta/demanda</b> : ${bool}</li>
+                        <li class="list-group-item"><b>Cliente</b> : ${op1}</li>
+                        <li class="list-group-item"><b>Proveedor</b> : ${op2}</li>
                     </ul>
                     <div>
                         <h5><b>Dirección 1</b> : </h5>
@@ -183,7 +190,7 @@ $(".borrarCliente").on("click",(e)=>{
         .done(function(data){
             console.log(data)
             if (data.resp == 'ok') {
-                 var notification = alertify.notify('Cliente borrado', 'success', 3, function(){
+                 var notification = alertify.notify('Cliente borrado', 'success', 1, function(){
                         window.location = "clientes"
                     });
             }else{
@@ -228,7 +235,9 @@ $(".editarCliente").on("click",(e)=>{
 
         var provincia = cliente[0].provincia
         var lista = "",
-            lista2 = ""
+            lista2 = "",
+            checkCliente = cliente[0].demanda == 1 ? 'checked' : '',
+            checkProveedor = cliente[0].oferta == 1 ? 'checked' : ''
 
         provincias.forEach(function(valor,key,obj){
             lista += "<option value='" + valor.idprovincia+ "'>"+valor.provincia+"</option>"
@@ -241,6 +250,19 @@ $(".editarCliente").on("click",(e)=>{
         $("#mostrarEditarCliente").html(`
             <form id="formEditarCliente">
                 <div>
+                    <label id="errorTipoUsuarioAc" style="color: #a94442;"></label>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type="checkbox" ${checkCliente} class="tipoUsuario" id="nuevoCliente" name="nuevoCliente">
+                            <label for="clientes">Cliente</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="checkbox" ${ checkProveedor} class="tipoUsuario" id="nuevoProveedor" name="nuevoProveedor">
+                            <label for="proveedor">Proveedor</label>
+                        </div>
+                    </div>                                
+
+                    <hr>
                     <div class="fila1 row">
                         <div class="form-group col-md-6">
                             <label for="nuevoNombre" class="control-label">Nombres *</label>
@@ -252,7 +274,7 @@ $(".editarCliente").on("click",(e)=>{
                         </div>
                     </div>
                     <div class="fila2 row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" id="contentEmailActualizar">
                             <label for="nuevoEmail" class="control-label">Email *</label>
                             <input type="email" name="nuevoEmail" id="nuevoEmail" class="form-control" value="`+cliente[0].email+`">
                         </div>
@@ -297,30 +319,23 @@ $(".editarCliente").on("click",(e)=>{
                         </div>
                     </div>
                     <div class="fila6 row">
-                        <div class="form-group col-md-6" ID="nuevasCiudades">
+                        <div class="form-group col-md-6">
+                            <label for="nuevaFechaNacimiento">Fecha de nacimiento</label>
+                            <input type="date" name="nuevaFechaNacimiento" id="nuevaFechaNacimiento" class="form-control" value="`+cliente[0].fechanacimiento+`">
+                        </div>
+                        <div class="form-group col-md-6" id="nuevasCiudades">
                             <label for="ciudad" class="control-label">Ciudad</label>
                             <select name="nuevaCiudad" id="nuevaCiudad">
                                  ${lista2}                    
                             </select>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="nuevoTipoUsuario">Tipo de usuario</label>
-                            <select  name="nuevoTipoUsuario" id="nuevoTipoUsuario" class="lista">
-                                <option value="1">Oferta</option>
-                                <option value="2">Demanda</option>
-                            </select>
-                        </div>
                     </div>
                     <div class="fila7 row">
                         <div class="form-group col-md-6">
-                            <label for="hombre">Hombre</label>
-                            <input type="radio" name="sexo" id="hombre" value="1" checked>
-                            <label for="mujer">Mujer</label>
-                            <input type="radio" name="sexo" id="mujer" value="0">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="nuevaFechaNacimiento">Fecha de nacimiento</label>
-                            <input type="date" name="nuevaFechaNacimiento" id="nuevaFechaNacimiento" class="form-control" value="`+cliente.fechanacimiento+`">
+                            <label for="hombre">Masculino</label>
+                            <input type="radio" name="sexo" id="hombre" value="1" checked class="genero">
+                            <label for="mujer">Femenino</label>
+                            <input type="radio" name="sexo" id="mujer" value="0" class="genero">
                         </div>
                     </div>
 
@@ -338,6 +353,22 @@ $(".editarCliente").on("click",(e)=>{
     
         `)
 
+         $('.genero').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
+        $('.tipoUsuario').each(function(){
+            var self = $(this),
+              label = self.next(),
+              label_text = label.text();
+
+            label.remove();
+            self.iCheck({
+              checkboxClass: 'icheckbox_line-green',
+              radioClass: 'iradio_line-green',
+              insert: '<div class="icheck_line-icon"></div>' + label_text
+            });
+        });
 
         //MOSTRAR LAS CIUDADES DE LAS PROVINCIAS AL EDITAR
         $("#nuevaProvincia").on("change",()=>{
@@ -395,28 +426,35 @@ $(".editarCliente").on("click",(e)=>{
             sortField: 'text',
             placeholder: 'Selecciona',
         })
-        
         control = $select[0].selectize
         control.setValue(cliente[0].idprovincia,1)
-
         control2 = $select2[0].selectize
         control2.setValue(cliente[0].idciudad,1)
+
+
         //GUARDAR ACTUALIZACIÓN
         $("#actualizarCliente").on("click",(e)=>{
             e.preventDefault()
             var formData = new FormData(document.getElementById("formEditarCliente"));
             var error = false
+
+
+             var cliente = $("#nuevoCliente")[0].checked,
+                proveedor = $("#nuevoProveedor")[0].checked 
+
+            if (!cliente && !proveedor) {
+                error = 'Seleccione el tipo de cliente'
+                $("#errorTipoUsuarioAc").html(error)
+            }else{
+                $("#errorTipoUsuarioAc").html('')
+            }
+
             formData.forEach((valor,key,obj)=>{
 
                 if(valor == ""){
                     $("#"+key)[0].parentElement.className += " has-error"
                     error = "Llene los campos obligatorios"
                 }
-                // else{
-                //     if ($("#"+key)[0].parentElement != undefined) {
-                //         $("#"+key)[0].parentElement.setAttribute("class","form-group col-md-6 has-success")
-                //     }
-                // }
             })
 
             formData.append("actualizarCliente", "true");
@@ -438,7 +476,8 @@ $(".editarCliente").on("click",(e)=>{
                             window.location = "clientes"
                         });
                     }else{
-                        var notification = alertify.notify(data, 'error', 3);
+                        $("#"+data.id).addClass('has-error')
+                        var notification = alertify.notify(data.texto, 'error', 3);
                     }
                 })
                 .fail(function(data){

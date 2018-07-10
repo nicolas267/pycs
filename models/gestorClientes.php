@@ -17,27 +17,23 @@ class GestorClientesModel{
 		$direc2 = $_POST["direccion2"];
 		$idNaci = $_POST["pais"];
 		$idciudad = $_POST["ciudad"];
-		$tipo = $_POST["tipoUsuario"];
-		if ($tipo == "1") {
-			$oferta = 1;
-			$demanda = 0;
+		$cliente = $_POST["cliente"];
+		$proveedor = $_POST["proveedor"];
+		$oferta = ($proveedor == 'on') ? 1 : 0;
+		$demanda = ($cliente == 'on') ? 1 : 0;
+
+		$filtro = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+		if ($filtro != false) {
+			$consulta->guardar_registro("INSERT INTO clientes (nombre, apellido,dni,sexo, fechanacimiento, email,telefono1,telefono2,direccion1,direccion2,idnacionalidad,idciudad,oferta,demanda) VALUES ('$nombre', '$apellido', '$dni', '$sexo', '$fechaN', '$email', '$tel1', '$tel2', '$direc1', '$direc2', '$idNaci','$idciudad','$oferta','$demanda')");
+
+			return 'ok';
 		}else{
-			$demanda = 1;
-			$oferta = 0;
+			$error['texto'] = "Correo no válido";
+			$error["id"] = "contentEmail";
+			return $error;
 		}
-
-
-		// $stmt -> bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
-		// $stmt -> bindParam(":password", $datosModel["password"], PDO::PARAM_STR);
-		// $stmt -> bindParam(":email", $datosModel["email"], PDO::PARAM_STR);
-		// $stmt -> bindParam(":photo", $datosModel["photo"], PDO::PARAM_STR);
-		// $stmt -> bindParam(":rol", $datosModel["rol"], PDO::PARAM_INT);
-
-
-		$consulta->guardar_registro("INSERT INTO clientes (nombre, apellido,dni,sexo, fechanacimiento, email,telefono1,telefono2,direccion1,direccion2,idnacionalidad,idciudad,oferta,demanda) VALUES ('$nombre', '$apellido', '$dni', '$sexo', '$fechaN', '$email', '$tel1', '$tel2', '$direc1', '$direc2', '$idNaci','$idciudad','$oferta','$demanda')");
-
-		return 'ok';
-
+		
 	
 	}
 
@@ -93,20 +89,24 @@ class GestorClientesModel{
 		$direc2 = $_POST["nuevaDireccion2"];
 		$idNaci = $_POST["nuevoPais"];
 		$idciudad = $_POST["nuevaCiudad"];
-		$tipo = $_POST["nuevoTipoUsuario"];
 		$id = $_POST["idcliente"];
-		if ($tipo == "1") {
-			$oferta = 1;
-			$demanda = 0;
+		$cliente = $_POST["nuevoCliente"];
+		$proveedor = $_POST["nuevoProveedor"];
+		$oferta = ($proveedor == 'on') ? 1 : 0;
+		$demanda = ($cliente == 'on') ? 1 : 0;
+
+		$filtro = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+		if ($filtro != false) {
+
+			$consulta->actualizar_registro("UPDATE clientes set nombre = '$nombre', apellido = '$apellido',dni = '$dni',sexo = '$sexo', fechanacimiento = '$fechaN', email = '$email', telefono1 ='$tel1',telefono2 = '$tel2',direccion1 = '$direc1', direccion2 = '$direc2', idnacionalidad = '$idNaci', idciudad = '$idciudad', oferta = '$oferta', demanda = '$demanda' where idcliente = '$id'");
+
+			return 'ok';
 		}else{
-			$demanda = 1;
-			$oferta = 0;
+			$error['texto'] = "Correo no válido";
+			$error["id"] = "contentEmailActualizar";
+			return $error;
 		}
-
-
-		$consulta->actualizar_registro("UPDATE clientes set nombre = '$nombre', apellido = '$apellido',dni = '$dni',sexo = '$sexo', fechanacimiento = '$fechaN', email = '$email', telefono1 ='$tel1',telefono2 = '$tel2',direccion1 = '$direc1', direccion2 = '$direc2', idnacionalidad = '$idNaci', idciudad = '$idciudad', oferta = '$oferta', demanda = '$demanda' where idcliente = '$id'");
-
-		return 'ok';
 
 	
 	}
