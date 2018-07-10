@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generaciÃ³n: 09-07-2018 a las 17:46:05
--- VersiÃ³n del servidor: 10.1.28-MariaDB
--- VersiÃ³n de PHP: 7.1.11
+-- Tiempo de generaciÃ³n: 10-07-2018 a las 21:17:13
+-- VersiÃ³n del servidor: 10.1.25-MariaDB
+-- VersiÃ³n de PHP: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -7969,131 +7969,382 @@ INSERT INTO `ciudades` (`idciudad`, `idprovincia`, `ciudad`, `borrado`) VALUES
 (7923, 52, 'Layana', 0),
 (7924, 52, 'LÃ©cera', 0),
 (7925, 52, 'LechÃ³n', 0),
-(7926, 52, 'LeciÃ±ena', 0),<!doctype html>
-<head>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-  <script src="../morris.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
-  <script src="lib/example.js"></script>
-  <link rel="stylesheet" href="lib/example.css">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
-  <link rel="stylesheet" href="../morris.css">
-</head>
-<body>
-<h1>Displaying X Labels Diagonally (Bar Chart)</h1>
-<div id="graph"></div>
-<pre id="code" class="prettyprint linenums">
-/* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type */
-var day_data = [
-  {"period": "2012-10-01", "licensed": 3407, "sorned": 660},
-  {"period": "2012-09-30", "licensed": 3351, "sorned": 629},
-  {"period": "2012-09-29", "licensed": 3269, "sorned": 618},
-  {"period": "2012-09-20", "licensed": 3246, "sorned": 661},
-  {"period": "2012-09-19", "licensed": 3257, "sorned": 667},
-  {"period": "2012-09-18", "licensed": 3248, "sorned": 627},
-  {"period": "2012-09-17", "licensed": 3171, "sorned": 660},
-  {"period": "2012-09-16", "licensed": 3171, "sorned": 676},
-  {"period": "2012-09-15", "licensed": 3201, "sorned": 656},
-  {"period": "2012-09-10", "licensed": 3215, "sorned": 622}
-];
-Morris.Bar({
-  element: 'graph',
-  data: day_data,
-  xkey: 'period',
-  ykeys: ['licensed', 'sorned'],
-  labels: ['Licensed', 'SORN'],
-  xLabelAngle: 60
-});
-</pre>
-</body>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ‚Å¡ºÁA=l"XI°³iO” zbÄNªõ;QôT]¦q›©?IYĞwZOY¬E7k–†{hŠ±†öÿß{oÌ”)q-~W’Å5Ù._Íqà¤!·Î/ k-@irOaÂÃHRe¡jäá#=õèç	ñG,šıë±IY|hm¼ĞCŸØ½MÜ˜P[¥_iaÓ~-¨œ™ o™O7|“\8¡“8×:€ÛVÔr¢]iIo\ÒíŸ•éLû·¿o?ZÕÎÊW¶­ğ~…–ÔAbg½eâÈì–Ä¡Ï F!OÚ75‘àI8®AÉ|ğ¼.o¢	LjJé‘ö£ªyÏ=Š[¥D%EÒ-WY²ĞvÙªá¯Ìš¿t_RÚ5ëï™ş×nù¼¬À®œCTI5]/ ‰ë§â¶oD¾±0£:OO®¿´AŞÑçºãÊ÷&Ë£Óàu­ÜÅÙltï@ÿçî`tKoDÉ‚²?Úô*Ğ#GüïfSlEê2pòßG›©ûú£ëQ›&¤“Å3Æ<Chh nVBm¯Iøï-ky´†®ëv™wÒq_†?£Ğ‹\6_²•ëÿu„A:B£ÜòXÍ‚gàÊÌY‚?#ÑÔÆH[îÖ­ÛpÕĞ’TÎ½[ ïÈÔ©]09³ŞYÁ¼UfdÌ¼şF0EÁ3ÉDı2:¥s0ÊÎñeÇEtWú ›¿ê»UèÊŞ?Ø%Ûê`öß±SÙ¿üA\İe´Ñ$Z¿ˆb7»‰Ùôü-Oñ[€ upö'
-õa§Í	K¢Ãk¾`c"ÏñÈûW.A©á–&EŸjb¬¦nÑ62™â¦9e:ró ñp½EÓ‰;6ú÷»|\µ’2¯-Ôf—Â>|0$G­¤azÃ5õ7ÉôÀ)¦[³‘×èB¦»´­ŒĞÛÄiß¡…]ñKFhÈ!æ<¥Ï~	–?æRm£×Å’ˆ½ïy[øî7úùÔà÷[á+,z58=_ÛiıöNÂÂá|mZŸxSÑœÕ([EVH“Ì$5ÿ –n•êYqmíYõsé+cO2—Û¥¿ã^ÿ‹±i_èùâñ¿º3ìî;ChÔ7M‘c§øçßÒ H¯]ÊVeùŸÖ‚»Ï¹Rph@˜²MqzæmÁ˜2!±b5À«ËŞ!]ËåüÇqêûŒğ‚k(=˜£c‡¤ò÷ù>ãİê(q…êeÏ`I>RŠ^æÆyæ,¦§M«íÇqË<ğ6ßÍUÌÒ¥ºçeÀß´(ğÓ$.J¿MÒqj
-ıµõ-fàÊvÛÛU=Û5jÉ$0t€5Æå„·#,‘QO¿G;Ê‡F#²ıH©,:t¯ñ3ñ˜ı ÃRX¸qbÜmÊy×Ê2ÜÖ_–6SÖç¸?ããp\ê ×‰
-}=èçX±©'‘áÙ·ÛtAV4¯C¡Ë"g¿X$zç³ô _È1¸Ï)W'ó—av„¼ÌoÊ<" âş‚)Ekqœ şÏ`pT¤O?opš'Àfœ_õù~hU,µ’!´ïÈ.¢b¼LV„ùñ­0é #†ÇÉò5#ÛÒIsõ™Ëé"w%Üo5Ñm©¬®åÓŞ­¤²,ÈéŸ¥CD:#e{tvöÈr+sk³ò'+sTuĞ5‹Hÿ}Õ*•MlŞĞšffÔ¦ª'KŠİ–_>‘¼K&ÈÂ.y•ÉÙhÎÛ,[Hü«."H¶£å}°[ÅñÖKìEo,>­ÃÇ|¥¼¯*O¬›A«ü€üèl-ë´qŒêQå>{Á'ùÕ^Tl¬"útîH˜,aà}¿#lSü__—–*F±Mæ‘Æ@m»ö$uİÛ§ØÿD³n£ƒHßßˆé>aá¼;}sÍİìâ5£¾Sül½qè¼«jI	”¥æiø¤µN8á²˜æÂ7°§¸"š—»·vÙXÌé´$=çU»M£aäEÀ³§1Ò5àk=¡Î8Áñ»H]îéÏC;~­OJòGD¿Óœï$ÎÊsCGÏ;ëÆŸb‡u5~+Èù×õuîŸ9ŒaÛÛGm==µ	³0I²~×TŞÉíhé"C›®1€!KŠwˆvÊ®Öƒ…7–êiÓ+²,ş‚bQËİÂ”¬›Š7µ¿kLñê­' l‡ş’ÀÔĞÃ?:Ê¡lEZ5ÙïìmS;úÿ Pëä•_’ç‹°öüP°Iá0ÒñXÇ’î¼Ì1aŠµÖïlvÈjÊá–ÁNŠˆz}G6€¸_şÆ~ óœø²2åé«û·ƒBô¾ìŞµÙÀÚ	ß¯Ø!>Rª6«OqR^ ØW
-h‰ÅL§;Eél]R›GîA€e§j#(ôæJ?œ‹9TÕöœ:ÎLˆÉt=ï.¦µ˜F†.ã í–#3ŞîV¨‡A&Ô§Òı_ó¬ËÜµÆ…Ô€îÀ¹‹Z:º3°SÅ§.ùo0…¦5­~ım²š…”Ì¼¬L®‚ÒµÀiË¶ÿÊÀPĞqa`ãÔêhVÿ[wnqP4ã·`séÌÜúÉt°•Dyc@¦Ê²zÎËâ&Œ†š1b·LªËåOdI¹€€â†V¾}3£*9<!doctype html>
-<head>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-  <script src="../morris.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
-  <script src="lib/example.js"></script>
-  <link rel="stylesheet" href="lib/example.css">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
-  <link rel="stylesheet" href="../morris.css">
-</head>
-<body>
-<h1>Displaying X Labels Diagonally</h1>
-<div id="graph"></div>
-<pre id="code" class="prettyprint linenums">
-/* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type */
-var day_data = [
-  {"period": "2012-10-30", "licensed": 3407, "sorned": 660},
-  {"period": "2012-09-30", "licensed": 3351, "sorned": 629},
-  {"period": "2012-09-29", "licensed": 3269, "sorned": 618},
-  {"period": "2012-09-20", "licensed": 3246, "sorned": 661},
-  {"period": "2012-09-19", "licensed": 3257, "sorned": 667},
-  {"period": "2012-09-18", "licensed": 3248, "sorned": 627},
-  {"period": "2012-09-17", "licensed": 3171, "sorned": 660},
-  {"period": "2012-09-16", "licensed": 3171, "sorned": 676},
-  {"period": "2012-09-15", "licensed": 3201, "sorned": 656},
-  {"period": "2012-09-10", "licensed": 3215, "sorned": 622}
-];
-Morris.Line({
-  element: 'graph',
-  data: day_data,
-  xkey: 'period',
-  ykeys: ['licensed', 'sorned'],
-  labels: ['Licensed', 'SORN'],
-  xLabelAngle: 60
-});
-</pre>
-</body>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         †‡1ˆçàP	Şd»¸¡ğ„ ,$ï‰(CğQ.¸àG3ÊıšÔ[ß_´®¥4ü©Q3ì)ûÁ Â÷å&óz†3öë/×,Ÿ?W(o>á.ÇÍİ÷·ş ëÑS…ÒÙAx6ĞnŸ/˜-lû5vcË™–Ÿ[“¨¥]Dlìhö‡èÎ¹Ü›,Ÿ.z¡9ÕN	¼ê¤V¶÷ÁAŒ\wœ0® P}×sc2=J#&ùoİ™9=>AT:ç üËècâ]l4O€Ş]‚]XÚŠOƒ%Ä"x¿€ åç—Š}H8ğÚÀ„e²<ÎN.™†«ÌoÚk›Ì–rDÚ([¬6]Ä¾ë'wrJpÙ
-oø˜« ‡r£t0xúÅX¾>Ÿ*çLùV„óªæ:`<—»,Ó a:|ÓÇ»pÓ8„‘Xkû(p©6ÏWlCrzpBû{ã_Şfº”ªùp\ IP€?¯RÍYx¶‚¹÷/jÙßş¾VK²âF^ÏÅ-xàßÈ¾5à~a_4“|
-±W°ÆeqÑG0òQÔÑ:ñ¨D¾ƒÌ?hËY¯Ï¹^¢uo4™ô^)Æ¬Ÿ¾µÁ'³wã5›Bÿæü¬á|ºÔ XÇ> ëFµ,"¼,Tà–Qºèø“¯S±8#^|ØÔõ6}¢õùN]Ìyª}åİc áåæ]uëW¦yŠœöë¹«ÖW<£{ó]ÂƒŸg@kRo/õ¡![tlï–msË•ªWÔUÓ-˜v—s]÷€èQ²´y)îrÊ'ôŞE2õjÇë¸íPğˆ–¬åÖnÖ|~2z±Q£_ÄÄ)^˜•OX= ZSºüq¼bŒèöœ’^wç‚éÿ‘l|ê|Cm½O^"Ô“Ù­Dx-Í[™ !3–¸ÓUúõ¯ğ¶Â«½ØspO/‘.ÒùÏñ;.yi•ÈLÌ–œ¦¼{¥^:ˆVQı5´2®E(¾ àõqëŠ×äXac"l£ß±Ù oÛÕ-ıŠx½VûáTo<3	Jˆ/=ğ"ÎB~"¸\1ñÀ†ÁM•¢8ºãôî6ÆùëëQ˜-Èj \Æse?…~¢…İåu+[u&M‡ÖzŒ1ç.Uü%s0šãÒùèa´ƒå6Ä°Ù±zÔŠŠGó â?Ç½ñf\Æ-	«í¼<5éÈ¿¯$›Ã.üŒ£nuîE3œiQ§¥öÎ•Ø"IL¤Ã]i‚Î;w¡øòƒ!œm-“º”e(“+×38o*,&ù–¨É=@u>öpÂÌ5riÑìTõb_2cñQİàŸ–"“V¼ã4íı¦at	/ûk4Àó·Ë<'H†Ñ¡jJbK;Zo †ƒÏ Ãğ[öË<>ğmı“|×ı¹—$¼ÔªŒ7£Ê¢÷kMQOLß=ıŞÓ·*VĞ´Àª¾‘~îÇşI›ÁÉ_-bıXÉ
-U~ë-:¢pL¡Š#ôµºdÛ2#¬%YTGê—’€oÎü}ªÛ¼t¼$­|…úZ'™‹ª²¹ HI¶Ø¡NxÉæy28èÂ±)ÚNŞs£¢l¼í¾ñ•®ñülºŞlñz†pej}x”ƒïC´«è‰c§AšVÓ:1ÜxéÔ°Å5£Ñ+¼¹_®èß¥Vë°h?ÅgÎ¦Øöšô«lsG‰O“÷÷ã3q‚&hßÇ€áÒÅ|qÄ¡`[å>î¢§5KVA8¸ìuG^ùÀÄ´\*ÂÊà†68åœÀ¯Ô>rkL4ßğ¶ÓHªr†	yë¬06¤›‡mMnœ³¼_Éü8ÿî9£­a}\·¸&nëLÍ±5Q‰een##tº_,LOLäÍØÉ9màZM\×x”øÀ÷G×¬ª(k¥ÇŸÎ34èöéÒ‘®˜Ìbãxí~A•“ç€/óDòÑÌhNì
-—õ.Á	Áš	óŸ±K|gAû£"m¤Î‰µÆR“Y86áˆG®ı âÁç¹äƒ"POQ—Òú5âÌ3øh¬Mª,nFèğæ@#Õ‰&“ÆßXìÈ}«XÍì¦X„|‘wÒ‚È&y¤½£æû¹Ş†±$pL‡1S6A§-SWh2ºü¯¢aü;Ê1#jœÆL¿H0Fx4±´Ù<ÿ
-c©¢³ôŸÅºmÑ¸¦(HÂSF=™o^Ä´ßex½@ş/ÄûOòó¿£â¬JÑ¡õØQóúIyó<tQJİÊUË9JJK¥‘ú	KĞX4¹:gœO9«|@ı¢ø?t¢Íª-Ğ"‡_áH‰(áW0Œ¡¥„=¤¤–‡b.
-RÀÉŸq×ˆtÃ'¦Š¡º¹qmc“øœ74cB‘§û‚óS÷!|èT4™.åğpaí{_8¶hÜµ
-kv®{ğì“?‚3}æ½M²3T‚èhXóë+ã+µ³Õ.›A‰O`v€¿KÌßÜÃÉµH¦àåÿëş°+ñÚ!¶_!]&-¥Šİgfdş2l'kLôä(Ô?$rÀACB]ŞÛïo	$su£8CïŞ¾×DôvA…¨xT!Ë^WåÑº`>…ûúŠ ¦+Íö®«È;îÓÉ…–@p–Ş™Á¨SçE )·6†¾xc66ÙíkŠ9¹Æh‰Cn¤YØÙ&_@Ğ”ÖR‰8ûËÿ=856ÒL›ÕÓÆ'`ÁfÓ¯RT¾<!doctype html>
-<head>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-  <script src="../morris.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
-  <script src="lib/example.js"></script>
-  <link rel="stylesheet" href="lib/example.css">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
-  <link rel="stylesheet" href="../morris.css">
-  <style>
-    body { background:#ccc; }
-  </style>
-</head>
-<body>
-<h1>Donut Chart</h1>
-<div id="graph"></div>
-<pre id="code" class="prettyprint linenums">
-Morris.Donut({
-  element: 'graph',
-  data: [
-    {value: 70, label: 'foo'},
-    {value: 15, label: 'bar'},
-    {value: 10, label: 'baz'},
-    {value: 5, label: 'A really really long label'}
-  ],
-  backgroundColor: '#ccc',
-  labelColor: '#060',
-  colors: [
-    '#0BA462',
-    '#39B580',
-    '#67C69D',
-    '#95D7BB'
-  ],
-  formatter: function (x) { return x + "%"}
-});
-</pre>
-</body>
-                                                                                                                                                                                                                                                                                                                                                                                                                                   ŸöCÛ`(FÆ7ÜÄAtŒhh¢eÓ•_G$gå·8ŞX¯ã´\¤³Üz¡Y®™'4“HÁ&çŸvóÃ&w6Ù¸}¤³?¿ ê«ÿ[\- ¤¶rŠ ò`l4d™f1¤*$Ã7¥<o¦ËZTØH[D %yûã0ñàVÚÁ3)Ì}ïi8KYÚ;Bò7ÇÛ‰­ƒÄ—Ì?Q×ªğOÙ×|õ_¡Äµâbyjó¥_.-O¤’)X.­	Vƒ¤Ğháí¨¦q~wÆì2uè¼rï€‡uËõ”¾à;²4ö>İ_Ã®¨w»`swÄËE3r§0¹EJl``ìôíÇï³hÕ ¸ÉíıS—ó˜‘ÛÜ§1Íó ªçfIW|—÷Èói¹ÉÂ§ïxÏé]şÂ«ÉQç×QHÃ'˜¤\‹+¹âú“B
-¯ÍÖ¹ˆrà÷DBÇØº|éøÔßÙ¡õj½ìkMï £Ô¿´1qTªc²€©½ü\2d'cbñRÆíŸ¼Ùß ­z¢;{wÏìŸÅÃyÂ¥l{U)ßl‹cö?W¶jÔœ€Àı{LŞWt(aW ³˜ƒìòtıõòÎBeê/}üt™Å=ñ!ÎÖY°‚šÍrºpşáw˜ ¶Pğf™ÍEqPiÏJè ¶[0^xhß­YñÿŸàÉ9ç½Ê—Áz÷…r*V—Ñºk8¼èĞÊ¼ñÉ ø}ïƒÑrJÛØ7+—Lõq5!ôñ¼
-Ç†’+P-iÕ;®íÛL­Ï†w¶dÊŒ-zGCe’CËjJ ‰î€…—ÉqpíJĞE®DÁê7j9.Ã¼¢ñf¢™ş7áŸ@$bùÖ=¤kÆ#{Ûæ”ÜªhVÿE³Ä„ı•5<8(Á_äœ¦†¤ Ôó—/)9…­œö%Æ	 ıfáèæÙ|f{mšcè‡¬7‚ZiEÔ$“ï^¦q†´GÿCÈvåÎ{Çët3Ír‡8œWk”DÒ„#3ßyÓF*ã/İJ|`ŒGèú‚#è+§öQVOóÄ&ÇÎe-¼¿
+(7926, 52, 'LeciÃ±ena', 0),
+(7927, 52, 'Letux', 0),
+(7928, 52, 'Litago', 0),
+(7929, 52, 'LituÃ©nigo', 0),
+(7930, 52, 'Lobera de Onsella', 0),
+(7931, 52, 'Longares', 0),
+(7932, 52, 'LongÃ¡s', 0),
+(7933, 52, 'Lucena de JalÃ³n', 0),
+(7934, 52, 'Luceni', 0),
+(7935, 52, 'Luesia', 0),
+(7936, 52, 'Luesma', 0),
+(7937, 52, 'Lumpiaque', 0),
+(7938, 52, 'Luna', 0),
+(7939, 52, 'Maella', 0),
+(7940, 52, 'MagallÃ³n', 0),
+(7941, 52, 'Mainar', 0),
+(7942, 52, 'Malanquilla', 0),
+(7943, 52, 'MalejÃ¡n', 0),
+(7944, 52, 'MallÃ©n', 0),
+(7945, 52, 'MalÃ³n', 0),
+(7946, 52, 'Maluenda', 0),
+(7947, 52, 'Manchones', 0),
+(7948, 52, 'Mara', 0),
+(7949, 52, 'MarÃ­a de Huerva', 0),
+(7950, 52, 'Marracos', 0),
+(7951, 52, 'Mediana de AragÃ³n', 0),
+(7952, 52, 'Mequinenza', 0),
+(7953, 52, 'Mesones de Isuela', 0),
+(7954, 52, 'Mezalocha', 0),
+(7955, 52, 'Mianos', 0),
+(7956, 52, 'Miedes de AragÃ³n', 0),
+(7957, 52, 'Monegrillo', 0),
+(7958, 52, 'Moneva', 0),
+(7959, 52, 'Monreal de Ariza', 0),
+(7960, 52, 'Monterde', 0),
+(7961, 52, 'MontÃ³n', 0),
+(7962, 52, 'Morata de JalÃ³n', 0),
+(7963, 52, 'Morata de Jiloca', 0),
+(7964, 52, 'MorÃ©s', 0),
+(7965, 52, 'Moros', 0),
+(7966, 52, 'Moyuela', 0),
+(7967, 52, 'Mozota', 0),
+(7968, 52, 'Muel', 0),
+(7969, 52, 'Muela', 0),
+(7970, 52, 'MunÃ©brega', 0),
+(7971, 52, 'Murero', 0),
+(7972, 52, 'Murillo de GÃ¡llego', 0),
+(7973, 52, 'NavardÃºn', 0),
+(7974, 52, 'Nombrevilla', 0),
+(7975, 52, 'Nonaspe', 0),
+(7976, 52, 'Novallas', 0),
+(7977, 52, 'Novillas', 0),
+(7978, 52, 'NuÃ©valos', 0),
+(7979, 52, 'Nuez de Ebro', 0),
+(7980, 52, 'OlvÃ©s', 0),
+(7981, 52, 'Orcajo', 0),
+(7982, 52, 'Orera', 0),
+(7983, 52, 'OrÃ©s', 0),
+(7984, 52, 'Oseja', 0),
+(7985, 52, 'Osera de Ebro', 0),
+(7986, 52, 'Paniza', 0),
+(7987, 52, 'Paracuellos de Jiloca', 0),
+(7988, 52, 'Paracuellos de la Ribera', 0),
+(7989, 52, 'Pastriz', 0),
+(7990, 52, 'Pedrola', 0),
+(7991, 52, 'Pedrosas', 0),
+(7992, 52, 'Perdiguera', 0),
+(7993, 52, 'Piedratajada', 0),
+(7994, 52, 'Pina de Ebro', 0),
+(7995, 52, 'Pinseque', 0),
+(7996, 52, 'Pintanos', 0),
+(7997, 52, 'Plasencia de Jalon', 0),
+(7998, 52, 'Pleitas', 0),
+(7999, 52, 'Plenas', 0),
+(8000, 52, 'Pomer', 0),
+(8001, 52, 'Pozuel de Ariza', 0),
+(8002, 52, 'Pozuelo de AragÃ³n', 0),
+(8003, 52, 'Pradilla de Ebro', 0),
+(8004, 52, 'Puebla de AlbortÃ³n', 0),
+(8005, 52, 'Puebla de AlfindÃ©n', 0),
+(8006, 52, 'Puendeluna', 0),
+(8007, 52, 'Purujosa', 0),
+(8008, 52, 'Quinto', 0),
+(8009, 52, 'Remolinos', 0),
+(8010, 52, 'RetascÃ³n', 0),
+(8011, 52, 'Ricla', 0),
+(8012, 52, 'Romanos', 0),
+(8013, 52, 'Rueda de JalÃ³n', 0),
+(8014, 52, 'Ruesca', 0),
+(8015, 52, 'SabiÃ±Ã¡n', 0),
+(8016, 52, 'SÃ¡daba', 0),
+(8017, 52, 'Salillas de JalÃ³n', 0),
+(8018, 52, 'Salvatierra de Esca', 0),
+(8019, 52, 'Samper del Salz', 0),
+(8020, 52, 'San MartÃ­n de la Virgen de Moncayo', 0),
+(8021, 52, 'San Mateo de GÃ¡llego', 0),
+(8022, 52, 'Santa Cruz de GrÃ­o', 0),
+(8023, 52, 'Santa Cruz de Moncayo', 0),
+(8024, 52, 'Santa Eulalia de GÃ¡llego', 0),
+(8025, 52, 'Santed', 0),
+(8026, 52, 'SÃ¡stago', 0),
+(8027, 52, 'Sediles', 0),
+(8028, 52, 'Sestrica', 0),
+(8029, 52, 'Sierra de Luna', 0),
+(8030, 52, 'Siges', 0),
+(8031, 52, 'SisamÃ³n', 0),
+(8032, 52, 'Sobradiel', 0),
+(8033, 52, 'Sos del Rey CatÃ³lico', 0),
+(8034, 52, 'Tabuenca', 0),
+(8035, 52, 'Talamantes', 0),
+(8036, 52, 'Tarazona', 0),
+(8037, 52, 'Tauste', 0),
+(8038, 52, 'Terrer', 0),
+(8039, 52, 'Tierga', 0),
+(8040, 52, 'Tobed', 0),
+(8041, 52, 'Torralba de los Frailes', 0),
+(8042, 52, 'Torralba de Ribota', 0),
+(8043, 52, 'Torralbilla', 0),
+(8044, 52, 'Torrehermosa', 0),
+(8045, 52, 'Torrelapaja', 0),
+(8046, 52, 'Torrellas', 0),
+(8047, 52, 'Torres de BerrellÃ©n', 0),
+(8048, 52, 'Torrijo de la CaÃ±ada', 0),
+(8049, 52, 'Tosos', 0),
+(8050, 52, 'Trasmoz', 0),
+(8051, 52, 'Trasobares', 0),
+(8052, 52, 'Uncastillo', 0),
+(8053, 52, 'UnduÃ©s de Lerda', 0),
+(8054, 52, 'Urrea de JalÃ³n', 0),
+(8055, 52, 'UrriÃ©s', 0),
+(8056, 52, 'Used', 0),
+(8057, 52, 'Utebo', 0),
+(8058, 52, 'Val de San MartÃ­n', 0),
+(8059, 52, 'Valdehorna', 0),
+(8060, 52, 'Valmadrid', 0),
+(8061, 52, 'Valpalmas', 0),
+(8062, 52, 'Valtorres', 0),
+(8063, 52, 'Velilla de Ebro', 0),
+(8064, 52, 'Velilla de Jiloca', 0),
+(8065, 52, 'Vera de Moncayo', 0),
+(8066, 52, 'Vierlas', 0),
+(8067, 52, 'Villadoz', 0),
+(8068, 52, 'Villafeliche', 0),
+(8069, 52, 'Villafranca de Ebro', 0),
+(8070, 52, 'Villalba de Perejil', 0),
+(8071, 52, 'Villalengua', 0),
+(8072, 52, 'Villamayor de GÃ¡llego', 0),
+(8073, 52, 'Villanueva de GÃ¡llego', 0),
+(8074, 52, 'Villanueva de Huerva', 0),
+(8075, 52, 'Villanueva de Jiloca', 0),
+(8076, 52, 'Villar de los Navarros', 0),
+(8077, 52, 'Villarreal de Huerva', 0),
+(8078, 52, 'Villarroya de la Sierra', 0),
+(8079, 52, 'Villarroya del Campo', 0),
+(8080, 52, 'VilueÃ±a', 0),
+(8081, 52, 'Vistabella', 0),
+(8082, 52, 'Zaida', 0),
+(8083, 52, 'Zaragoza', 0),
+(8084, 52, 'Zuera', 0),
+(8085, 6, 'Ceuta', 0),
+(8086, 23, 'Melilla', 0),
+(8087, 46, 'AgÃ¼ero', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `idcliente` int(11) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `apellido` varchar(20) NOT NULL,
+  `dni` varchar(15) NOT NULL,
+  `sexo` tinyint(1) NOT NULL,
+  `fechanacimiento` date NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `telefono1` varchar(15) NOT NULL,
+  `telefono2` varchar(15) NOT NULL,
+  `direccion1` text NOT NULL,
+  `direccion2` text NOT NULL,
+  `idnacionalidad` int(11) NOT NULL,
+  `idciudad` int(11) NOT NULL,
+  `idlocalidad` int(11) NOT NULL,
+  `oferta` tinyint(1) NOT NULL,
+  `demanda` tinyint(1) NOT NULL,
+  `foto` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`idcliente`, `nombre`, `apellido`, `dni`, `sexo`, `fechanacimiento`, `email`, `telefono1`, `telefono2`, `direccion1`, `direccion2`, `idnacionalidad`, `idciudad`, `idlocalidad`, `oferta`, `demanda`, `foto`) VALUES
+(11, 'jesus david', 'martÃ­nez florez', '8374524-j', 1, '2018-07-21', 'martinez19florez@gmail.com', '(091)-87-34-58', '(879)-87-98-79', 'direccion 1', 'direccion 2', 1, 881, 0, 1, 1, 'views/images/fotosClientes/fotoCliente7922.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `paises`
+--
+
+CREATE TABLE `paises` (
+  `idpais` int(11) NOT NULL,
+  `pais` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `paises`
+--
+
+INSERT INTO `paises` (`idpais`, `pais`) VALUES
+(1, 'EspaÃ±a');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `provincias`
+--
+
+CREATE TABLE `provincias` (
+  `idprovincia` int(10) UNSIGNED NOT NULL,
+  `provincia` varchar(50) NOT NULL,
+  `idpais` int(11) NOT NULL,
+  `borrado` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `provincias`
+--
+
+INSERT INTO `provincias` (`idprovincia`, `provincia`, `idpais`, `borrado`) VALUES
+(1, 'Ãlava', 1, 0),
+(2, 'CastellÃ³n', 1, 0),
+(3, 'LeÃ³n', 1, 0),
+(4, 'Salamanca', 1, 0),
+(5, 'Albacete', 1, 0),
+(6, 'Ceuta', 1, 0),
+(7, 'Lleida', 1, 0),
+(8, 'Segovia', 1, 0),
+(9, 'Alicante', 1, 0),
+(10, 'Ciudad Real', 1, 0),
+(11, 'Lugo', 1, 0),
+(12, 'Sevilla', 1, 0),
+(13, 'AlmerÃ­a', 1, 0),
+(14, 'CÃ³rdoba', 1, 0),
+(15, 'Madrid', 1, 0),
+(16, 'Soria', 1, 0),
+(17, 'Asturias', 1, 0),
+(18, 'A CoruÃ±a', 1, 0),
+(19, 'MÃ¡laga', 1, 0),
+(20, 'Tarragona', 1, 0),
+(21, 'Ãvila', 1, 0),
+(22, 'Cuenca', 1, 0),
+(23, 'Melilla', 1, 0),
+(24, 'S.C. Tenerife', 1, 0),
+(25, 'Badajoz', 1, 0),
+(26, 'Girona', 1, 0),
+(27, 'Murcia', 1, 0),
+(28, 'Teruel', 1, 0),
+(29, 'Baleares', 1, 0),
+(30, 'Granada', 1, 0),
+(31, 'Navarra', 1, 0),
+(32, 'Toledo', 1, 0),
+(33, 'Barcelona', 1, 0),
+(34, 'Guadalajara', 1, 0),
+(35, 'Ourense', 1, 0),
+(36, 'Valencia', 1, 0),
+(37, 'Burgos', 1, 0),
+(38, 'GuipÃºzcoa', 1, 0),
+(39, 'Palencia', 1, 0),
+(40, 'Valladolid', 1, 0),
+(41, 'CÃ¡ceres', 1, 0),
+(42, 'Huelva', 1, 0),
+(43, 'Las Palmas', 1, 0),
+(44, 'Vizcaya', 1, 0),
+(45, 'CÃ¡diz', 1, 0),
+(46, 'Huesca', 1, 0),
+(47, 'Pontevedra', 1, 0),
+(48, 'Zamora', 1, 0),
+(49, 'Cantabria', 1, 0),
+(50, 'JaÃ©n', 1, 0),
+(51, 'La Rioja', 1, 0),
+(52, 'Zaragoza', 1, 0),
+(53, 'mi provincia', 1, 0),
+(54, 'prueba', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `photo` varchar(150) NOT NULL,
+  `rol` int(11) NOT NULL,
+  `intentos` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `usuario`, `password`, `email`, `photo`, `rol`, `intentos`) VALUES
+(1, 'jesusDavid', '$2a$07$asxx54ahjppf45sd87a5auiWzBsmBulvTEtCPiRpM1UGt0rt.kkZq', 'martinez19florez@gmail.com', 'views/images/perfiles/perfil601.jpg', 0, 1),
+(26, 'administrador', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'martinez19florez@gmail.com', 'views/images/perfiles/perfil770.jpg', 0, 0);
+
+--
+-- Ãndices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `ciudades`
+--
+ALTER TABLE `ciudades`
+  ADD PRIMARY KEY (`idciudad`),
+  ADD KEY `idprovincia` (`idprovincia`);
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`idcliente`);
+
+--
+-- Indices de la tabla `paises`
+--
+ALTER TABLE `paises`
+  ADD PRIMARY KEY (`idpais`);
+
+--
+-- Indices de la tabla `provincias`
+--
+ALTER TABLE `provincias`
+  ADD PRIMARY KEY (`idprovincia`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `ciudades`
+--
+ALTER TABLE `ciudades`
+  MODIFY `idciudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8088;
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+--
+-- AUTO_INCREMENT de la tabla `paises`
+--
+ALTER TABLE `paises`
+  MODIFY `idpais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `provincias`
+--
+ALTER TABLE `provincias`
+  MODIFY `idprovincia` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
