@@ -129,11 +129,39 @@ $(".verInfoCliente").on("click",(e)=>{
         
         
         var op1 = data[0].demanda == '1' ? "<span class='fa fa-check'></span>" : "<span class='fa fa-times'></span>",
-            op2 = data[0].oferta == '1' ? "<span class='fa fa-check'></span>" : "<span class='fa fa-times'></span>"
+            op2 = data[0].oferta == '1' ? "<span class='fa fa-check'></span>" : "<span class='fa fa-times'></span>",
+            mensaje = data[0].foto == '' ? "No ha foto disponible" : ''
         
 
 
         $("#mostrarInfoCliente").html(`
+
+
+            <div class="form-group col-md-6">
+                <div class="modal fade" id="modal-verfoto" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="modalLabel">Foto ( `+data[0].nombre + ' ' + data[0].apellido +` )</h4>
+                            </div>
+                            <div class="modal-body">
+                                <img src="` + data[0].foto +  `" style="width: 100%;">
+                                <h4>` + mensaje + `</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
             <div class="panel panel-info">
                 <div class="panel-heading">`+data[0].nombre + ' ' + data[0].apellido +` ( ${sexo} ) </div>
                 <div class="panel-body">
@@ -148,10 +176,11 @@ $(".verInfoCliente").on("click",(e)=>{
                     </ul>
                     <div>
                         <h5><b>Dirección 1</b> : </h5>
-                        <p>`+data[0].direccion1+`</p>
+                        <p class="help-block">`+data[0].direccion1+`</p>
                         <h5><b>Dirección 2</b> : </h5>
-                        <p>`+data[0].direccion2+`</p>
+                        <p class="help-block">`+data[0].direccion2+`</p>
                     </div>
+                    <button class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-verfoto">Foto</button>
                 </div>
             </div>
                     
@@ -237,7 +266,10 @@ $(".editarCliente").on("click",(e)=>{
         var lista = "",
             lista2 = "",
             checkCliente = cliente[0].demanda == 1 ? 'checked' : '',
-            checkProveedor = cliente[0].oferta == 1 ? 'checked' : ''
+            checkProveedor = cliente[0].oferta == 1 ? 'checked' : '',
+            checkMasculino = cliente[0].sexo == 1 ? "checked" : '',
+            checkFemenino = cliente[0].sexo == 0 ? "checked" : ''
+
 
         provincias.forEach(function(valor,key,obj){
             lista += "<option value='" + valor.idprovincia+ "'>"+valor.provincia+"</option>"
@@ -253,12 +285,12 @@ $(".editarCliente").on("click",(e)=>{
                     <label id="errorTipoUsuarioAc" style="color: #a94442;"></label>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <input type="checkbox" ${checkCliente} class="tipoUsuario" id="nuevoCliente" name="nuevoCliente">
-                            <label for="clientes">Cliente</label>
+                            <input type="checkbox" ${checkCliente} class="tipoUsuarioEditar" id="nuevoCliente" name="nuevoCliente">
+                            <label for="nuevoCliente">Cliente</label>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="checkbox" ${ checkProveedor} class="tipoUsuario" id="nuevoProveedor" name="nuevoProveedor">
-                            <label for="proveedor">Proveedor</label>
+                            <input type="checkbox" ${ checkProveedor} class="tipoUsuarioEditar" id="nuevoProveedor" name="nuevoProveedor">
+                            <label for="nuevoProveedor">Proveedor</label>
                         </div>
                     </div>                                
 
@@ -333,9 +365,29 @@ $(".editarCliente").on("click",(e)=>{
                     <div class="fila7 row">
                         <div class="form-group col-md-6">
                             <label for="hombre">Masculino</label>
-                            <input type="radio" name="sexo" id="hombre" value="1" checked class="genero">
+                            <input type="radio" name="sexo" id="hombre" value="1" ${checkMasculino} class="genero">
                             <label for="mujer">Femenino</label>
-                            <input type="radio" name="sexo" id="mujer" value="0" class="genero">
+                            <input type="radio" name="sexo" id="mujer" value="0" ${checkFemenino} class="genero">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="modal fade" id="modal-editar-foto" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h4 class="modal-title" id="modalLabel">Cambiar foto</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="file" name="nuevaFoto" id="nuevaFoto" class="dropify">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -343,12 +395,16 @@ $(".editarCliente").on("click",(e)=>{
 
                     <div class="fila6 row">
                         <div class="form-group col-md-12">
-                            <button class="btn btn-success" id="actualizarCliente">Actualizar</button>
+                            
                         </div>
                     </div>
                         
                 </div>
             </form>
+            <div>
+                <button class="btn btn-success" id="actualizarCliente">Actualizar</button>
+                <button class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-editar-foto">Cambiar foto</button>
+            </div>
 
     
         `)
@@ -357,7 +413,7 @@ $(".editarCliente").on("click",(e)=>{
             checkboxClass: 'icheckbox_flat-green',
             radioClass: 'iradio_flat-green'
         });
-        $('.tipoUsuario').each(function(){
+        $('.tipoUsuarioEditar').each(function(){
             var self = $(this),
               label = self.next(),
               label_text = label.text();
@@ -368,6 +424,15 @@ $(".editarCliente").on("click",(e)=>{
               radioClass: 'iradio_line-green',
               insert: '<div class="icheck_line-icon"></div>' + label_text
             });
+        });
+        $('.dropify').dropify({
+             messages: {
+                'default' : 'Arrastra un archivo o da click',
+                'replace' : "Arrastra o da click para reemplazar",
+                'remove' : 'Eliminar',
+                'error' : 'Error, este archivo es muy pesado'
+            },
+            // maxFileSize : 15000
         });
 
         //MOSTRAR LAS CIUDADES DE LAS PROVINCIAS AL EDITAR
