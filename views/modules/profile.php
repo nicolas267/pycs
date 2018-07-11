@@ -64,13 +64,15 @@
                 <div class="col-md-9 col-sm-9 col-xs-12">
 
                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <ul id="myTab" class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#tab_content_editar" role="tab" id="editar-tab" data-toggle="tab" aria-expanded="true">Editar perfil</a>
                             </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
                 
                             <div role="tabpanel" class="tab-pane fade active in" id="tab_content_editar" aria-labelledby="editar-tab">
+
+                                <div style="margin-top: 20px;">
                                 <form action="" class="form-horizontal form-label-left" id="formActualizarInfo">
 
                                     <div class="item form-group">
@@ -109,6 +111,7 @@
                                 
                                 
                                 </form>
+                                </div>
                             </div>
                         </div>
                     </div>

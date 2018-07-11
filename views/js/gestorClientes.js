@@ -37,7 +37,7 @@ $("#guardarNuevoCliente").on("click",(e)=>{
         .done(function(data){
             console.log(data)
             if(data.resp == "ok"){
-                var notification = alertify.notify('Cliente agragado', 'success', 2, function(){
+                var notification = alertify.notify(' OK ', 'success', 2, function(){
                     window.location = "clientes"
                 });
             }else{
@@ -145,7 +145,7 @@ $(".verInfoCliente").on("click",(e)=>{
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="modal-title" id="modalLabel">Foto ( `+data[0].nombre + ' ' + data[0].apellido +` )</h4>
+                                <h4 class="modal-title" id="modalLabel">`+data[0].nombre + ' ' + data[0].apellido +`</h4>
                             </div>
                             <div class="modal-body">
                                 <img src="` + data[0].foto +  `" style="width: 100%;">
@@ -219,7 +219,7 @@ $(".borrarCliente").on("click",(e)=>{
         .done(function(data){
             console.log(data)
             if (data.resp == 'ok') {
-                 var notification = alertify.notify('Cliente borrado', 'success', 1, function(){
+                 var notification = alertify.notify(' OK ', 'success', 1, function(){
                         window.location = "clientes"
                     });
             }else{
@@ -284,11 +284,11 @@ $(".editarCliente").on("click",(e)=>{
                 <div>
                     <label id="errorTipoUsuarioAc" style="color: #a94442;"></label>
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <input type="checkbox" ${checkCliente} class="tipoUsuarioEditar" id="nuevoCliente" name="nuevoCliente">
                             <label for="nuevoCliente">Cliente</label>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <input type="checkbox" ${ checkProveedor} class="tipoUsuarioEditar" id="nuevoProveedor" name="nuevoProveedor">
                             <label for="nuevoProveedor">Proveedor</label>
                         </div>
@@ -296,53 +296,53 @@ $(".editarCliente").on("click",(e)=>{
 
                     <hr>
                     <div class="fila1 row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <label for="nuevoNombre" class="control-label">Nombres *</label>
                             <input type="text" name="nuevoNombre" id="nuevoNombre" class="form-control" value="`+cliente[0].nombre+`">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <label for="nuevoApellido" class="control-label">Apellidos *</label>
                             <input type="text" name="nuevoApellido" id="nuevoApellido" class="form-control" value="`+cliente[0].apellido+`">
                         </div>
                     </div>
                     <div class="fila2 row">
-                        <div class="form-group col-md-6" id="contentEmailActualizar">
+                        <div class="form-group col-xs-12 col-md-6" id="contentEmailActualizar">
                             <label for="nuevoEmail" class="control-label">Email *</label>
                             <input type="email" name="nuevoEmail" id="nuevoEmail" class="form-control" value="`+cliente[0].email+`">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <label for="nuevoDni" class="control-label">DNI *</label>
                             <input type="text" name="nuevoDni" id="nuevoDni" class="form-control" value="`+cliente[0].dni+`">
                         </div>
                     </div>
                     <div class="fila3 row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <label for="nuevoTelefono1" class="control-label">Teléfono 1 *</label>
                             <input type="text" name="nuevoTelefono1" id="nuevoTelefono1" class="form-control phone" value="`+cliente[0].telefono1+`">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <label for="nuevoTelefono2" class="control-label">Telefono 2 *</label>
                             <input type="text" name="nuevoTelefono2" id="nuevoTelefono2" class="form-control phone" value="`+cliente[0].telefono2+`">
                         </div>
                     </div>
                     <div class="fila4 row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <label for="nuevaDireccion1" class="control-label">Dirección 1 *</label>
                             <textarea name="nuevaDireccion1" id="nuevaDireccion1" class="form-control">`+cliente[0].direccion1+`</textarea>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <label for="nuevaDireccion2" class="control-label">Dirección 2 *</label>
                             <textarea name="nuevaDireccion2" id="nuevaDireccion2" class="form-control">`+cliente[0].direccion2+`</textarea>
                         </div>
                     </div>
                     <div class="fila5 row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <label for="nuevoPais" class="control-label">Pais</label>
                             <select name="nuevoPais" id="nuevoPais" class="lista">
                                 <option value="1">España</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <label for="nuevaProvincia" class="control-label">Provincia</label>
                             <select name="nuevaProvincia" id="nuevaProvincia">
                                 <option></option>
@@ -351,11 +351,11 @@ $(".editarCliente").on("click",(e)=>{
                         </div>
                     </div>
                     <div class="fila6 row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-xs-12 col-md-6">
                             <label for="nuevaFechaNacimiento">Fecha de nacimiento</label>
                             <input type="date" name="nuevaFechaNacimiento" id="nuevaFechaNacimiento" class="form-control" value="`+cliente[0].fechanacimiento+`">
                         </div>
-                        <div class="form-group col-md-6" id="nuevasCiudades">
+                        <div class="form-group col-xs-12 col-md-6" id="nuevasCiudades">
                             <label for="ciudad" class="control-label">Ciudad</label>
                             <select name="nuevaCiudad" id="nuevaCiudad">
                                  ${lista2}                    
@@ -537,7 +537,7 @@ $(".editarCliente").on("click",(e)=>{
                 .done(function(data){
                     console.log(data)
                     if(data.resp == "ok"){
-                        var notification = alertify.notify('Cliente actualizado', 'success', 3, function(){
+                        var notification = alertify.notify(' OK ', 'success', 3, function(){
                             window.location = "clientes"
                         });
                     }else{

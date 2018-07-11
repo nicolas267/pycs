@@ -29,11 +29,24 @@ class GestorClientesController{
 					<td>'.$registros[$i]['provincia'].'</td>
 					<td>'.$registros[$i]['ciudad'].'</td>
 					<td>
-						<a class="btn btn-xs btn-info verInfoCliente" accesskey="'.$registros[$i]["idcliente"].'" href="#">
-							Ver
-						</a>
-						<button class="btn btn-xs btn-primary editarCliente" accesskey="'.$registros[$i]["idcliente"].'">Editar</button>
-						<button class="btn btn-xs btn-danger borrarCliente" accesskey="'.$registros[$i]["idcliente"].'">Borrar</button>
+						<ul class="list-unstyled list-inline" style="display: inline-flex;">
+						<li>
+							<a class="btn btn-xs btn-info verInfoCliente" accesskey="'.$registros[$i]["idcliente"].'" href="#">
+								Ver
+							</a>
+						</li>
+						<li>
+							<button class="btn btn-xs btn-primary editarCliente" accesskey="'.$registros[$i]["idcliente"].'">
+								Editar
+							</button>
+						</li>
+						<li>
+							<button class="btn btn-xs btn-danger borrarCliente" accesskey="'.$registros[$i]["idcliente"].'">
+								Borrar
+							</button>
+						</li>
+						</ul>
+						
 					</td>
 				</tr>
 			';

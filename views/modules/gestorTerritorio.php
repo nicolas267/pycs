@@ -45,18 +45,18 @@
                                 <div class="row" id="contProvincias">
 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-xs-12 col-sm-12 col-md-6">
                                             <div class="panel panel-info">
                                                 <div class="panel-heading">AGREGAR PROVINCIA</div>
                                                 <div class="panel-body">
                                                    <form id="formAgregarProvincia">
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="pais" class="control-label">Pais</label> -->
                                                             <select name="pais" id="pais">
                                                                 <option value="1">España</option>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="pais" class="control-label">Provincia</label> -->
                                                             <input type="text" name="nuevaProvincia" id="nuevaProvincia" class="form-control" placeholder="Provincia">
                                                         </div>
@@ -66,18 +66,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-xs-12 col-sm-12 col-md-6">
                                             <div class="panel panel-warning">
                                                 <div class="panel-heading">INHABILITAR PROVINCIA</div>
                                                 <div class="panel-body">
                                                    <form id="formInhabilitarProvincia">
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="pais" class="control-label">Pais</label> -->
                                                             <select name="pais2" id="pais2">
                                                                 <option value="1">España</option>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="" class="control-label">Provincia</label> -->
                                                             <select name="provinciaInhabilitar" id="provinciaInhabilitar">
                                                                 <option></option>
@@ -102,18 +102,18 @@
                                     <a  class="btn btn-link" id="opcionesProvincias">Otras opciones</a>
                                     <hr>
                                     <div class="row" style="display: none;" id="otrasOpcionesProvincias">
-                                        <div class="col-md-6">
+                                        <div class="col-xs-12 col-sm-12 col-md-6">
                                             <div class="panel panel-success">
                                                 <div class="panel-heading">HABILITAR PROVINCIA</div>
                                                 <div class="panel-body">
                                                     <form id="formHabilitarProvincia">
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="pais" class="control-label">Pais</label> -->
                                                             <select name="paisA" id="paisA">
                                                                 <option value="1">España</option>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="" class="control-label">Provincia</label> -->
                                                             <select name="provinciaHabilitar" id="provinciaHabilitar">
                                                                 <option></option>
@@ -131,18 +131,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-xs-12 col-sm-12 col-md-6">
                                             <div class="panel panel-danger">
                                                 <div class="panel-heading">ELIMINAR PROVINCIA</div>
                                                 <div class="panel-body">
                                                    <form id="formEliminarProvincia">
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="pais" class="control-label">Pais</label> -->
                                                             <select name="paisE" id="paisE">
                                                                 <option value="1">España</option>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="" class="control-label">Provincia</label> -->
                                                             <select name="provinciaEliminar" id="provinciaEliminar">
                                                                 <option></option>
@@ -169,12 +169,12 @@
                                 <div class="row" id="contCiudades" style="display: none;">
                                     
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-xs-12 col-sm-12 col-md-6">
                                             <div class="panel panel-info">
                                                 <div class="panel-heading">AGREGAR CIUDAD</div>
                                                 <div class="panel-body">
                                                    <form id="formAgregarCiudad">
-                                                       <div class="form-group col-md-12">
+                                                       <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="provincia" class="control-label">Provincia</label> -->
                                                             <select name="provinciaC" id="provinciaC" accesskey="1">
                                                                 <option></option>
@@ -186,7 +186,7 @@
                                                                  ?>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="pais" class="control-label">Provincia</label> -->
                                                             <input type="text" name="nuevaCiudad" id="nuevaCiudad"  class="form-control" placeholder="Nueva Ciudad" />
                                                         </div>
@@ -195,12 +195,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-xs-12 col-sm-12 col-md-6">
                                             <div class="panel panel-warning">
                                                 <div class="panel-heading">INHABILITAR CIUDAD</div>
                                                 <div class="panel-body">
                                                    <form id="formInhabilitarCiudad">
-                                                        <div class="form-group col-md-12">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="provincia" class="control-label">Provincia</label> -->
                                                             <select name="provinciaI" class="provincia" id="provinciaI" accesskey="2">
                                                                 <option></option>
@@ -212,7 +212,7 @@
                                                                  ?>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group col-md-12" id="ciudades2">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12" id="ciudades2">
                                                                     
                                                          
                                                         </div>
@@ -227,15 +227,15 @@
                                     <hr>
 
                                     <div class="row" id="otrasOpcionesCiudades" style="display: none;">
-                                        <div class="col-md-6">
+                                        <div class="col-xs-12 col-sm-12 col-md-6">
                                             <div class="panel panel-success">
                                                 <div class="panel-heading">HABILITAR CIUDAD</div>
                                                 <div class="panel-body">
                                                    <form id="formHabilitarCiudad">
-                                                       <div class="form-group col-md-12">
+                                                       <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="provincia" class="control-label">Provincia</label> -->
                                                             <select name="provinciaCiudadHabilitar" class="provinciasIn" id="provinciaCiudadHabilitar" accesskey="1">
-                                                                <option value="all"></option>
+                                                                <option></option>
                                                                 
                                                                 <?php 
 
@@ -244,7 +244,7 @@
                                                                  ?>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group col-md-12" id="ciudades1">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12" id="ciudades1">
                                                             
                                                         </div>
                                                         <button class="btn btn-success pull-right" id="habilitarCiudad">Habilitar</button>
@@ -252,12 +252,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-xs-12 col-sm-12 col-md-6">
                                             <div class="panel panel-danger">
                                                 <div class="panel-heading">ELIMINAR CIUDAD</div>
                                                 <div class="panel-body">
                                                    <form id="formEliminarCiudad">
-                                                       <div class="form-group col-md-12">
+                                                       <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                                             <!-- <label for="provincia" class="control-label">Provincia</label> -->
                                                             <select name="provinciaE" class="provincia" id="provinciaE" accesskey="3">
                                                                 <option></option>
@@ -269,7 +269,7 @@
                                                                  ?>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group col-md-12" id="ciudades3">
+                                                        <div class="form-group col-xs-12 col-sm-12 col-md-12" id="ciudades3">
                                                            
                                                         </div>
                                                         <button class="btn btn-danger pull-right" id="eliminarCiudad">Eliminar</button>

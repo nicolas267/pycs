@@ -1,5 +1,4 @@
 
-
 $("#gestorCiudades").on("click",()=>{
     $("#contProvincias").hide();
     $("#contCiudades").slideToggle();
@@ -33,7 +32,7 @@ $(".provincia").on("change",(e)=>{
     var cod = e.target.accessKey
     var idProvincia = $("#"+id).val(); 
 
-     $.ajax({
+    $.ajax({
         url: 'views/ajax/ajax.php',
         type: 'POST',
         dataType: "JSON",
