@@ -9,70 +9,48 @@ $("#guardarNuevoUsuario").on("click",(e)=>{
         }
     })
     if(!error){
-        $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType : 'JSON',
-            data: formData,
-		    cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            console.log(data)
-            if(data.resp == "ok"){
-                var notification = alertify.notify('Usuario agragado', 'success', 2, function(){
-                    window.location = "registro"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 2);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-            $("#mensaje_error").html(data.responseText)
-        })
+        OptionsAjax.data = formData
+        ajax.setDataForm(OptionsAjax)
+        ajax.ejecutar()
+            .then((data)=>{
+                console.log(data)
+                if(data.resp == "ok"){
+                    var notification = alertify.notify('Usuario agragado', 'success', 2, function(){
+                        window.location = "registro"
+                    });
+                }else{
+                    var notification = alertify.notify(data, 'error', 2);
+                }
+            })
     }else{
         var notification = alertify.notify(error, 'error', 2);
     }
-
-
     return false
 
 })
-//CAMBIAR LA FOTO DE PERFIL
+
+//CAMBIAR LA FOTO DE PERFIL USUAIO ACTUAL
+
 $("#cambiarFoto").on("click",()=>{
     $("#modal-cambiar-foto").modal("show");
-
     $("#guardarNuevaFoto").on("click",(e)=>{
         e.preventDefault()
         var formData = new FormData(document.getElementById("formNuevaFoto"));
             formData.append("nuevaFoto","true")
-        $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType: 'JSON',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            console.log(data)
-            if(data.resp == "ok"){
-                var notification = alertify.notify('Foto actualizada', 'success', 2, function(){
-                    window.location = "profile"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 2);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-        })
 
+        OptionsAjax.data = formData
+        ajax.setDataForm(OptionsAjax)
+        ajax.ejecutar()
+            .then((data)=>{
+                console.log(data)
+                if(data.resp == "ok"){
+                    var notification = alertify.notify('Foto actualizada', 'success', 2, function(){
+                        window.location = "profile"
+                    });
+                }else{
+                    var notification = alertify.notify(data, 'error', 2);
+                }
+            })
     })
 })
 
@@ -89,31 +67,20 @@ $("#actualizarInformacion").on("click",()=>{
             error = "Todos los campos son obligatorios"
         }
     })
-
     if(!error){
-        $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType: "JSON",
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            // console.log(data)
-            if(data.resp == "ok"){
-                var notification = alertify.notify('Información actualizada', 'success', 2, function(){
-                    window.location = "profile"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 2);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-        })
+        OptionsAjax.data = formData
+        ajax.setDataForm(OptionsAjax)
+        ajax.ejecutar()
+            .then((data)=>{
+                // console.log(data)
+                if(data.resp == "ok"){
+                    var notification = alertify.notify('Información actualizada', 'success', 2, function(){
+                        window.location = "profile"
+                    });
+                }else{
+                    var notification = alertify.notify(data, 'error', 2);
+                }
+            })
     }else{
         var notification = alertify.notify(error, 'error', 2);
     }

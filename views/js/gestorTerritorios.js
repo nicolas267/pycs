@@ -31,94 +31,76 @@ $(".provincia").on("change",(e)=>{
     var id = e.target.id
     var cod = e.target.accessKey
     var idProvincia = $("#"+id).val(); 
+    OptionsAjax.data = {
+        varCiudadesAjax: "true",
+        idProvincia : idProvincia
+    }
+    ajax.setData(OptionsAjax)
+    ajax.ejecutar()
+        .then((data)=>{
+            // console.log(data)
+            if(data.length != 0){
+                $("#ciudades"+cod).html(`
+                    <!-- <label for="ciudad" class="control-label">Ciudad</label> -->
+                    <select name="ciudad">
+                                                        
+                    </select>
 
-    $.ajax({
-        url: 'views/ajax/ajax.php',
-        type: 'POST',
-        dataType: "JSON",
-        data: {
-            varCiudadesAjax: "true",
-            idProvincia : idProvincia
-        }
-    })
-    .done(function(data){
-        // console.log(data)
-        if(data.length != 0){
-            $("#ciudades"+cod).html(`
-                <!-- <label for="ciudad" class="control-label">Ciudad</label> -->
-                <select name="ciudad">
-                                                    
-                </select>
-
-            `)
-            for(key in data){
-                $(`#ciudades${cod} select`).append(`
-                    <option value="` + data[key].idciudad + `">`  + data[key].ciudad +  `</option>
                 `)
-            
+                for(key in data){
+                    $(`#ciudades${cod} select`).append(`
+                        <option value="` + data[key].idciudad + `">`  + data[key].ciudad +  `</option>
+                    `)
+                
+                }
+
+                $("select").selectize({
+                    create: false,
+                    sortField: 'text'
+                })
+            }else{
+                var notification = alertify.notify('No hay ciudades disponibles', 'error', 3);
             }
-
-            $("select").selectize({
-                create: false,
-                sortField: 'text'
-            })
-        }else{
-            var notification = alertify.notify('No hay ciudades disponibles', 'error', 3);
-        }
-    })
-    .fail(function(data){
-        console.log("fail")
-        console.log(data)
-    })
-
+        })
 })
 
 $(".provinciasIn").on("change",(e)=>{
-
 
     var id = e.target.id
     var cod = e.target.accessKey
     var idProvincia = $("#"+id).val(); 
 
-     $.ajax({
-        url: 'views/ajax/ajax.php',
-        type: 'POST',
-        dataType: "JSON",
-        data: {
-            varCiudadesInhabilitadas: "true",
-            idProvincia : idProvincia
-        }
-    })
-    .done(function(data){
-        // console.log(data)
-        if(data.length != 0){
-            $("#ciudades"+cod).html(`
-                <!-- <label for="ciudad" class="control-label">Ciudad</label> -->
-                <select name="ciudad">
-                                                    
-                </select>
+    OptionsAjax.data = {
+        varCiudadesInhabilitadas: "true",
+        idProvincia : idProvincia
+    }
+    ajax.setData(OptionsAjax)
+    ajax.ejecutar()
+        .then((data)=>{
+            // console.log(data)
+            if(data.length != 0){
+                $("#ciudades"+cod).html(`
+                    <!-- <label for="ciudad" class="control-label">Ciudad</label> -->
+                    <select name="ciudad">
+                                                        
+                    </select>
 
-            `)
-            for(key in data){
-                $(`#ciudades${cod} select`).append(`
-                    <option value="` + data[key].idciudad + `">`  + data[key].ciudad +  `</option>
                 `)
-            
+                for(key in data){
+                    $(`#ciudades${cod} select`).append(`
+                        <option value="` + data[key].idciudad + `">`  + data[key].ciudad +  `</option>
+                    `)
+                
+                }
+
+                $("select").selectize({
+                    create: false,
+                    sortField: 'text'
+                })
+            }else{
+                var notification = alertify.notify('No hay ciudades disponibles', 'error', 3);
             }
-
-            $("select").selectize({
-                create: false,
-                sortField: 'text'
-            })
-        }else{
-            var notification = alertify.notify('No hay ciudades disponibles', 'error', 3);
-        }
-    })
-    .fail(function(data){
-        console.log("fail")
-        console.log(data)
-    })
-
+        })
 })
 
 //AGREGAR PROVINCIA
@@ -138,29 +120,19 @@ $("#agregarProvincia").on("click",(e)=>{
     formData.append('agregarProvincia','true')
 
     if (!error) {
-         $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType: 'JSON',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            console.log(data)
-            if (data.resp == "ok") {
-                var notification = alertify.notify('Provincia agregada', 'success', 2, function(){
-                    window.location = "gestorTerritorio"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 3);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-        })
+        OptionsAjax.data = formData
+        ajax.setDataForm(OptionsAjax)
+        ajax.ejecutar()
+            .then((data)=>{
+                console.log(data)
+                if (data.resp == "ok") {
+                    var notification = alertify.notify('Provincia agregada', 'success', 2, function(){
+                        window.location = "gestorTerritorio"
+                    });
+                }else{
+                    var notification = alertify.notify(data, 'error', 3);
+                }
+            })
     }else{
         var notification = alertify.notify(error, 'error', 3);
     }
@@ -184,29 +156,19 @@ $("#inhabilitarProvincia").on("click",(e)=>{
     formData.append('inhabilitarProvincia','true')
 
     if (!error) {
-         $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType: 'JSON',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            console.log(data)
-            if (data.resp == "ok") {
-                var notification = alertify.notify('Provincia Inhabilitada', 'success', 2, function(){
-                    window.location = "gestorTerritorio"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 3);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-        })
+        OptionsAjax.data = formData
+        ajax.setDataForm(OptionsAjax)
+        ajax.ejecutar()
+            .then((data)=>{
+                // console.log(data)
+                if (data.resp == "ok") {
+                    var notification = alertify.notify('Provincia Inhabilitada', 'success', 2, function(){
+                        window.location = "gestorTerritorio"
+                    });
+                }else{
+                    var notification = alertify.notify(data, 'error', 3);
+                }
+            })
     }else{
         var notification = alertify.notify(error, 'error', 3);
     }
@@ -231,37 +193,25 @@ $("#habilitarProvincia").on("click",(e)=>{
     formData.append('habilitarProvincia','true')
 
     if (!error) {
-         $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType: 'JSON',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            console.log(data)
-            if (data.resp == "ok") {
-                var notification = alertify.notify('Provincia habilitada', 'success', 2, function(){
-                    window.location = "gestorTerritorio"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 3);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-        })
+        OptionsAjax.data = formData
+        ajax.setDataForm(OptionsAjax)
+        ajax.ejecutar()
+            .then((data)=>{
+                // console.log(data)
+                if (data.resp == "ok") {
+                    var notification = alertify.notify('Provincia habilitada', 'success', 2, function(){
+                        window.location = "gestorTerritorio"
+                    });
+                }else{
+                    var notification = alertify.notify(data, 'error', 3);
+                }
+            })
     }else{
         var notification = alertify.notify(error, 'error', 3);
     }
-
 })
 //ELIMINAR PRIVINCIA
 $("#eliminarProvincia").on("click",(e)=>{
-
     e.preventDefault()
 
     var formData = new FormData(document.getElementById("formEliminarProvincia"));
@@ -276,38 +226,38 @@ $("#eliminarProvincia").on("click",(e)=>{
     })
     formData.append('eliminarProvincia','true')
 
-    if (!error) {
-         $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType: 'JSON',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            console.log(data)
-            if (data.resp == "ok") {
-                var notification = alertify.notify('Provincia eliminada', 'success', 2, function(){
-                    window.location = "gestorTerritorio"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 3);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-        })
-    }else{
-        var notification = alertify.notify(error, 'error', 3);
+    alertify.confirm("<h5>¿Está seguro de borrar esta provincia? se borrán todas sus ciudades.</h5>", function(){
+        borrar()
+    },function(){
+        alertify.error("Cancelado")
+    })
+
+    function borrar(){
+        if (!error) {
+            OptionsAjax.data = formData
+            ajax.setDataForm(OptionsAjax)
+            ajax.ejecutar()
+                .then((data)=>{
+                    if (data.resp == "ok") {
+                        var notification = alertify.notify('Provincia eliminada', 'success', 2, function(){
+                            window.location = "gestorTerritorio"
+                        });
+                    }else{
+                        var notification = alertify.notify(data, 'error', 3);
+                    }
+                })
+        }else{
+            var notification = alertify.notify(error, 'error', 3);
+        }
     }
+
+        
 
 })
 
 /*FIN DE GESTOR PROVINCIAS*/
 
+//-------------------------------------------------------------------------------------------------------
 
 /*GESTOR CIUDADES*/
 
@@ -328,29 +278,19 @@ $("#agregarCiudad").on("click",(e)=>{
     formData.append('agregarCiudad','true')
 
     if (!error) {
-         $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType: 'JSON',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            console.log(data)
-            if (data.resp == "ok") {
-                var notification = alertify.notify('Ciudad agregada', 'success', 2, function(){
-                    window.location = "gestorTerritorio"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 3);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-        })
+        OptionsAjax.data = formData
+        ajax.setDataForm(OptionsAjax)
+        ajax.ejecutar()
+            .then((data)=>{
+                console.log(data)
+                if (data.resp == "ok") {
+                    var notification = alertify.notify('Ciudad agregada', 'success', 2, function(){
+                        window.location = "gestorTerritorio"
+                    });
+                }else{
+                    var notification = alertify.notify(data, 'error', 3);
+                }
+            })
     }else{
         var notification = alertify.notify(error, 'error', 3);
     }
@@ -372,31 +312,20 @@ $("#habilitarCiudad").on("click",(e)=>{
         }
     })
     formData.append('habilitarCiudad','true')
-
     if (!error) {
-         $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType: 'JSON',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            console.log(data)
-            if (data.resp == "ok") {
-                var notification = alertify.notify('Ciudad habilitada', 'success', 2, function(){
-                    window.location = "gestorTerritorio"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 3);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-        })
+        OptionsAjax.data = formData
+        ajax.setDataForm(OptionsAjax)
+        ajax.ejecutar()
+            .then((data)=>{
+                console.log(data)
+                if (data.resp == "ok") {
+                    var notification = alertify.notify('Ciudad habilitada', 'success', 2, function(){
+                        window.location = "gestorTerritorio"
+                    });
+                }else{
+                    var notification = alertify.notify(data, 'error', 3);
+                }
+            })
     }else{
         var notification = alertify.notify(error, 'error', 3);
     }
@@ -421,39 +350,29 @@ $("#inhabilitarCiudad").on("click",(e)=>{
     formData.append('inhabilitarCiudad','true')
 
     if (!error) {
-         $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType: 'JSON',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            console.log(data)
-            if (data.resp == "ok") {
-                var notification = alertify.notify('Ciudad Inhabilitada', 'success', 2, function(){
-                    window.location = "gestorTerritorio"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 3);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-        })
+        OptionsAjax.data = formData
+        ajax.setDataForm(OptionsAjax)
+        ajax.ejecutar()
+            .then((data)=>{
+                console.log(data)
+                if (data.resp == "ok") {
+                    var notification = alertify.notify('Ciudad Inhabilitada', 'success', 2, function(){
+                        window.location = "gestorTerritorio"
+                    });
+                }else{
+                    var notification = alertify.notify(data, 'error', 3);
+                }
+            })
     }else{
         var notification = alertify.notify(error, 'error', 3);
     }
 
 })
+
 //ELIMINAR PRIVINCIA
 $("#eliminarCiudad").on("click",(e)=>{
 
     e.preventDefault()
-
     var formData = new FormData(document.getElementById("formEliminarCiudad"));
     var error = false
 
@@ -467,31 +386,20 @@ $("#eliminarCiudad").on("click",(e)=>{
     formData.append('eliminarCiudad','true')
 
     if (!error) {
-         $.ajax({
-            url: 'views/ajax/ajax.php',
-            type: 'POST',
-            dataType: 'JSON',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-        .done(function(data){
-            console.log(data)
-            if (data.resp == "ok") {
-                var notification = alertify.notify('Ciudad eliminada', 'success', 2, function(){
-                    window.location = "gestorTerritorio"
-                });
-            }else{
-                var notification = alertify.notify(data, 'error', 3);
-            }
-        })
-        .fail(function(data){
-            console.log("fail")
-            console.log(data)
-        })
+        OptionsAjax.data = formData
+        ajax.setDataForm(OptionsAjax)
+        ajax.ejecutar()
+            .then((data)=>{
+                console.log(data)
+                if (data.resp == "ok") {
+                    var notification = alertify.notify('Ciudad eliminada', 'success', 2, function(){
+                        window.location = "gestorTerritorio"
+                    });
+                }else{
+                    var notification = alertify.notify(data, 'error', 3);
+                }
+            })
     }else{
         var notification = alertify.notify(error, 'error', 3);
     }
-
 })
